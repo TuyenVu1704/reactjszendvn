@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class App extends Component {
     render() {
         return (
-            <div className="rows">
+            <div className="rows ">
                 {/* TITLE : START */}
                 <div className="page-header">
                     <h1>
