@@ -1,39 +1,34 @@
 import React, { Component } from "react";
 import Course from "./components/Course";
+import Title from "./components/Title";
+import Control from "./components/Control";
+import Form from "./components/Form";
+import List from "./components/List";
+import items from "./mocks/task";
 class App extends Component {
-    render() {
-        const items = [
-            {
-                name: "ReacJS",
-                time: "30h",
-                free: true,
-            },
-            {
-                name: "PHP",
-                time: "31h",
-                free: false,
-            },
-            {
-                name: "NodeJS",
-                time: "32h",
-                free: true,
-            },
-            {
-                name: "My SQL",
-                time: "33h",
-                free: true,
-            },
-        ];
+    constructor(props) {
+        super(props);
+        this.state = {
+            items: items,
+        };
+    }
 
-        const elmCoure = items.map((item, index) => (
-            <Course
-                key={index}
-                name={item.name}
-                time={item.time}
-                free={item.free}
-            />
-        ));
-        return <div className="row">{elmCoure}</div>;
+    render() {
+        console.log(this.state.items);
+        let items = this.state.items;
+        return (
+            <div className="row">
+                <Title />
+                {/* CONTROL (SEARCH + SORT + ADD) : START */}
+                <Control />
+                {/* CONTROL (SEARCH + SORT + ADD) : END */}
+                {/* FORM : START */}
+                <Form />
+                {/* FORM : END */}
+                {/* LIST : START */}
+                <List items={items} />
+            </div>
+        );
     }
 }
 
